@@ -52,7 +52,7 @@ public class SelectableFirebaseRecyclerAdapter<T, H extends SelectableFirebaseRe
      * @param position Position of the item to check
      * @return true if the item is selected, false otherwise
      */
-    protected boolean isSelected(int position) {
+    public boolean isSelected(int position) {
         return getSelectedItems().contains(position);
     }
 
@@ -92,7 +92,7 @@ public class SelectableFirebaseRecyclerAdapter<T, H extends SelectableFirebaseRe
      * Indicates the list of selected items
      * @return SList of selected items ids
      */
-    private List<Integer> getSelectedItems() {
+    public List<Integer> getSelectedItems() {
         List<Integer> items = new ArrayList<>(selectedItems.size());
         for (int i = 0; i < selectedItems.size(); ++i) {
             items.add(selectedItems.keyAt(i));
