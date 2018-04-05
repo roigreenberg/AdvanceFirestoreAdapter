@@ -115,8 +115,13 @@ public class SelectableFirebaseRecyclerAdapter<T, H extends SelectableFirebaseRe
     }
 
     public boolean isSelectedMode(){ return mode;}
+
     public void setSelectedMode(boolean mode) {
         this.mode = mode;
+        if (!mode){
+            Log.d(TAG, "setSelectedMode - clear selection");
+            clearSelection();
+        }
         notifyDataSetChanged();
     }
 
@@ -219,7 +224,6 @@ public class SelectableFirebaseRecyclerAdapter<T, H extends SelectableFirebaseRe
         @Override
         public void onDestroyActionMode(ActionMode mode) {
             Log.d(TAG, "onDestroyActionMode");
-            adapter.clearSelection();
             adapter.setSelectedMode(false);
         }
     }
