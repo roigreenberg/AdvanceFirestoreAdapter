@@ -44,7 +44,6 @@ public class SelectableFirebaseRecyclerAdapter<T, H extends SelectableFirebaseRe
 
     public void setActionMode(SelectableActionModeCallback actionModeCallback) {
         this.actionModeCallback = actionModeCallback;
-        actionMode = mActivity.startSupportActionMode(this.actionModeCallback);
     }
 
     /**
@@ -131,6 +130,7 @@ public class SelectableFirebaseRecyclerAdapter<T, H extends SelectableFirebaseRe
             } else {
                 Log.d(TAG, "start actionMode");
                 setSelectedMode(true);
+                actionMode = mActivity.startSupportActionMode(this.actionModeCallback);
             }
         }
 
@@ -162,9 +162,9 @@ public class SelectableFirebaseRecyclerAdapter<T, H extends SelectableFirebaseRe
         public void setSelection(boolean isSelected) {
             Log.d("ROIGR", "set selection " + isSelected);
             if (isSelected) {
-                itemView.setBackgroundResource(R.color.selectedItem);
+                itemView.setBackgroundResource(R.color.sfra_selectedItem);
             } else {
-                itemView.setBackgroundResource(R.color.transparent);
+                itemView.setBackgroundResource(R.color.sfra_transparent);
             }
         }
 
