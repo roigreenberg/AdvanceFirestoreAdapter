@@ -1,7 +1,6 @@
 package com.roi.greenberg.selectablefirebaserecycleradapter;
 
 
-import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.MenuRes;
 import android.support.annotation.NonNull;
@@ -40,11 +39,12 @@ public class SelectableFirebaseRecyclerAdapter<T, H extends SelectableFirebaseRe
         selectedItems = new SparseBooleanArray();
         mode = false;
         mActivity = activity;
-        actionModeCallback = new SelectableActionModeCallback(mActivity, R.menu.selected_menu);
+        setActionMode(new SelectableActionModeCallback(mActivity, this, R.menu.selected_menu));
     }
 
-    public void setActionModeCallback(SelectableActionModeCallback actionModeCallback) {
+    public void setActionMode(SelectableActionModeCallback actionModeCallback) {
         this.actionModeCallback = actionModeCallback;
+        actionMode = mActivity.startSupportActionMode(this.actionModeCallback);
     }
 
     /**
@@ -128,10 +128,9 @@ public class SelectableFirebaseRecyclerAdapter<T, H extends SelectableFirebaseRe
         if (!isSelectedMode()) {
             if (!isLong) {
                 return;
-            } else if (actionMode == null) {
+            } else {
                 Log.d(TAG, "start actionMode");
                 setSelectedMode(true);
-                actionMode = mActivity.startSupportActionMode(actionModeCallback);
             }
         }
 
@@ -185,15 +184,17 @@ public class SelectableFirebaseRecyclerAdapter<T, H extends SelectableFirebaseRe
         }
     }
 
-    public class SelectableActionModeCallback implements ActionMode.Callback {
+    public static class SelectableActionModeCallback implements ActionMode.Callback {
         @SuppressWarnings("unused")
         private final String TAG = SelectableActionModeCallback.class.getSimpleName();
         private Context context;
         private @MenuRes int menu_layout;
+        private SelectableFirebaseRecyclerAdapter adapter;
 
-        public SelectableActionModeCallback(Context context, @MenuRes int menu_layout) {
+        public SelectableActionModeCallback(Context context, SelectableFirebaseRecyclerAdapter adapter, @MenuRes int menu_layout) {
             this.context = context;
             this.menu_layout = menu_layout;
+            this.adapter = adapter;
         }
 
         @Override
@@ -218,9 +219,8 @@ public class SelectableFirebaseRecyclerAdapter<T, H extends SelectableFirebaseRe
         @Override
         public void onDestroyActionMode(ActionMode mode) {
             Log.d(TAG, "onDestroyActionMode");
-            clearSelection();
-            setSelectedMode(false);
-            actionMode = null;
+            adapter.clearSelection();
+            adapter.setSelectedMode(false);
         }
     }
 }
