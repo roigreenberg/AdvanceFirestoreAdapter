@@ -17,3 +17,7 @@ Step 2. Add the dependency
 	dependencies {
 	        compile 'com.github.roigreenberg:SelectableFirebaseAdapter:0.0.1'
 	}
+
+
+Credits:
+This projerct is based on https://github.com/Kernald/recyclerview-sample/tree/master/app/src/main/java/fr/enoent/recyclerviewsample
