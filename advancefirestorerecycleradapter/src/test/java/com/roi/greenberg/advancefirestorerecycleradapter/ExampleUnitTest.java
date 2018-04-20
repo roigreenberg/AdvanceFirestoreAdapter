@@ -1,4 +1,4 @@
-package com.roi.greenberg.selectablefirebaserecycleradapter;
+package com.roi.greenberg.advancefirestorerecycleradapter;
 
 import org.junit.Test;
 

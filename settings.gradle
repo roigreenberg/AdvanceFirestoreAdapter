@@ -1,1 +1,1 @@
-include ':app', ':selectablefirebaserecycleradapter'
+include ':app', ':advancefirestorerecycleradapter'

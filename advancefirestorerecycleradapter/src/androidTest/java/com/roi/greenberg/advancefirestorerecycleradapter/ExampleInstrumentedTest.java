@@ -1,4 +1,4 @@
-package com.roi.greenberg.selectablefirebaserecycleradapter;
+package com.roi.greenberg.advancefirestorerecycleradapter;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.roi.greenberg.selectablefirebaserecycleradapter.test", appContext.getPackageName());
+        assertEquals("com.roi.greenberg.advancefirestorerecycleradapter.test", appContext.getPackageName());
     }
 }

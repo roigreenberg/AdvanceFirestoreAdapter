@@ -1,4 +1,4 @@
-package com.roi.greenberg.selectablefirebaserecycleradapter;
+package com.roi.greenberg.advancefirestorerecycleradapter;
 
 
 import android.content.Context;
@@ -14,15 +14,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
+
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SelectableFirebaseRecyclerAdapter<T, H extends SelectableFirebaseRecyclerAdapter.SelectableHolder> extends FirebaseRecyclerAdapter<T, H> {
+public class AdvanceFirestoreRecyclerAdapter<T, H extends AdvanceFirestoreRecyclerAdapter.SelectableHolder> extends FirestoreRecyclerAdapter<T, H> {
     @SuppressWarnings("unused")
-    private static final String TAG = SelectableFirebaseRecyclerAdapter.class.getSimpleName();
+    private static final String TAG = AdvanceFirestoreRecyclerAdapter.class.getSimpleName();
 
     private SparseBooleanArray selectedItems;
     private boolean mode;
@@ -33,7 +34,7 @@ public class SelectableFirebaseRecyclerAdapter<T, H extends SelectableFirebaseRe
 
 
 
-    public SelectableFirebaseRecyclerAdapter(FirebaseRecyclerOptions<T> options, AppCompatActivity activity) {
+    public AdvanceFirestoreRecyclerAdapter(FirestoreRecyclerOptions<T> options, AppCompatActivity activity) {
         super(options);
         Log.d(TAG, "SelectableFirebaseRecyclerAdapter");
         selectedItems = new SparseBooleanArray();
@@ -194,9 +195,9 @@ public class SelectableFirebaseRecyclerAdapter<T, H extends SelectableFirebaseRe
         private final String TAG = SelectableActionModeCallback.class.getSimpleName();
         private Context context;
         private @MenuRes int menu_layout;
-        private SelectableFirebaseRecyclerAdapter adapter;
+        private AdvanceFirestoreRecyclerAdapter adapter;
 
-        public SelectableActionModeCallback(Context context, SelectableFirebaseRecyclerAdapter adapter, @MenuRes int menu_layout) {
+        public SelectableActionModeCallback(Context context, AdvanceFirestoreRecyclerAdapter adapter, @MenuRes int menu_layout) {
             this.context = context;
             this.menu_layout = menu_layout;
             this.adapter = adapter;
