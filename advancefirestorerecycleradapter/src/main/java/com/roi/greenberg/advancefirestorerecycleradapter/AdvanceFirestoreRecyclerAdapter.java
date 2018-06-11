@@ -2,11 +2,11 @@ package com.roi.greenberg.advancefirestorerecycleradapter;
 
 
 import android.content.Context;
-import android.support.annotation.MenuRes;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.view.ActionMode;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.MenuRes;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.ActionMode;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.Menu;
@@ -36,7 +36,7 @@ public class AdvanceFirestoreRecyclerAdapter<T, H extends AdvanceFirestoreRecycl
 
     public AdvanceFirestoreRecyclerAdapter(FirestoreRecyclerOptions<T> options, AppCompatActivity activity) {
         super(options);
-        Log.d(TAG, "SelectableFirebaseRecyclerAdapter");
+        Log.d(TAG, "AdvanceFirestoreRecyclerAdapter");
         selectedItems = new SparseBooleanArray();
         mode = false;
         mActivity = activity;
